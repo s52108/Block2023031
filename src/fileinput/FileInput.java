@@ -1,4 +1,4 @@
-package org.campus02.filein;
+package fileinput;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,8 +17,8 @@ public class FileInput {
         // if-Abfrage
         int count = 0;
 
-        try {
-            FileInputStream fis = new FileInputStream(file);
+        try (FileInputStream fis = new FileInputStream(file)) {
+
             int byteRead;
             while ((byteRead = fis.read()) != -1) {
                 count++;
